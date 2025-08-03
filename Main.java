@@ -1,27 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        //Animal animal = new Animal();
-//            Duck donald = new Duck();
-//            //Animal donald = new Duck(); // Can
-//            //Duck daisy = new Animal() // Can not do this
-//            Duck daisy = new Duck();
-//            Owl hedwig = new Owl();
-//            daisy.clean(donald);
-//            donald.clean(daisy);
-//            donald.clean(hedwig);
-//
-//            ///Duck pd = new PekingDuck();
-//            PekingDuck pd = new PekingDuck();
-//            pd.clean(hedwig);
+        Shark shark = new Shark();
+        SurgeonFish surgeonFish = new SurgeonFish();
+        FlyingShark flyingShark = new FlyingShark();
+        Insect insect = new Insect();
 
-        Duck duck1 = new Duck();
-        PekingDuck duck2 = new PekingDuck();
-        Duck duck3 = new PekingDuck();
+        // Demonstrate dynamic polymorphism
+        shark.eat(surgeonFish);            // Calls eat(Fish) with SurgeonFish
+        shark.eat(new Shark());            // Calls eat(Fish) with Shark
+        
+        // Demonstrate static polymorphism (overloading)
+        flyingShark.eat(new Shark());      // Calls eat(Fish)
+        flyingShark.eat(insect);           // Calls eat(Flyable)
 
-        duck1.clean(duck2);
-        duck2.clean(duck1);
-        //duck3.clean(duck1);
-        duck1.clean(new Bat()); // We call anonymous object
-        //duck1.clean(Bat);
+        // Demonstrate polymorphic assignments and behaviors
+        Fish fish = new Shark();           // A Shark is-a Fish
+        Flyable flyer = new FlyingShark(); // A FlyingShark is-a Flyable
+        fish.swim();                       // Calls Shark's swim()
+        flyer.fly();                       // Calls FlyingShark's fly()
     }
 }
