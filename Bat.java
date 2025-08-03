@@ -9,8 +9,4 @@ public class Bat extends Animal implements Flyable{
         //
     }
 
-    @Override
-    public void glides(){
-        //
-    }
 }
